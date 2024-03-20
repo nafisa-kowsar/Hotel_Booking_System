@@ -1,0 +1,69 @@
+<div class='background-container'>
+    <div class="forms-container">
+        <form (ngSubmit)="makePayment()" #paymentForm="ngForm" class="payment-form">
+            <h1>Payment</h1>
+            <label for="reservationId">Reservation ID:</label>
+            <input type="number" id="reservationId" [(ngModel)]="reservationId" name="reservationId" required
+                disabled />
+
+            <label for="fare">Fare:</label>
+            <input type="number" id="fare" [(ngModel)]="fare" name="fare" required disabled />
+
+            <br />
+
+            <label for="paymentType">Payment Type:</label>
+            <select id="paymentType" [(ngModel)]="paymentMethod" name="paymentMethod">
+                <option value="upi">UPI</option>
+                <option value="net banking">Net Banking</option>
+                <option value="credit card">Credit Card</option>
+                <option value="debit card">Debit Card</option>
+            </select>
+
+            <br />
+
+
+            <div *ngIf="paymentMethod === 'upi'">
+                <label for="upiId">UPI ID:</label>
+                <input type="text" id="upiId" [(ngModel)]="upiId" name="upiId" />
+            </div>
+
+
+            <div *ngIf="paymentMethod === 'net banking'">
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" [(ngModel)]="bankName" name="bankName" />
+                <br />
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" [(ngModel)]="accountNumber" name="accountNumber" />
+            </div>
+
+
+            <div *ngIf="paymentMethod === 'credit card'">
+                <label for="creditCardNumber">Credit Card Number:</label>
+                <input type="text" id="creditCardNumber" [(ngModel)]="creditCardNumber" name="creditCardNumber" />
+            </div>
+
+
+            <div *ngIf="paymentMethod === 'debit card'">
+                <label for="debitCardNumber">Debit Card Number:</label>
+                <input type="text" id="debitCardNumber" [(ngModel)]="debitCardNumber" name="debitCardNumber" />
+            </div>
+
+            <br />
+
+            <button type="submit">Make Payment</button>
+        </form>
+
+        <form class="processed-payment-form">
+            <div *ngIf="processedPayment">
+                <h3>Payment Details!</h3>
+                <p>Payment ID: {{ processedPayment.paymentId }}</p>
+                <p>Amount: {{ processedPayment.amount }}</p>
+                <p>Transaction ID: {{ processedPayment.transactionID }}</p>
+                <p>Payment Date: {{ processedPayment.paymentDate }}</p>
+                <p>Status: {{ processedPayment.status }}</p>
+                <button class="download-button" (click)="downloadPdf()">Download as PDF</button>
+
+            </div>
+        </form>
+    </div>
+</div>

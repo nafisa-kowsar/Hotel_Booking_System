@@ -1,0 +1,187 @@
+
+.background-image {
+    width: 100%;
+    height: auto;
+    background-size: auto;
+    background-position: center;
+}
+
+.hero-home {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    margin: auto;
+    object-fit: cover;
+}
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #b98100;
+}
+
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+h1,
+h5 {
+    opacity: 100;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    perspective: 1000px;
+    align-items: center;
+}
+
+.card .card-side {
+    position: absolute;
+    width: 100%;
+    height: 270px;
+    transition: transform 0.6s;
+    backface-visibility: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card .card-side-front {
+    transform: rotateY(0deg);
+}
+
+.card .card-side-back {
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-side-front {
+    transform: rotateY(-180deg);
+    z-index: 1; 
+}
+
+.card:hover .card-side-back {
+    transform: rotateY(0deg);
+}
+
+.room-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+@media screen and (max-width: 768px) {
+    .hero-home {
+        max-height: 400px; 
+    }
+
+    .card {
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .card .card-side {
+        height: auto;
+        position: relative; 
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column; 
+    }
+    .animate-on-scroll {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .card:hover .card-side-front {
+        transform: none;
+        z-index: 1; 
+    }
+    
+    .card:hover .card-side-back {
+        transform: none;
+    }
+    .card .card-side-front {
+        transform: none;
+    }
+    
+    .card .card-side-back {
+        transform: none;
+    }
+    .card-title{
+        padding-bottom: 10px;
+
+    }
+    
+}
+
+
+.btn-primary {
+    background-color: #b98100;
+    border-color: #b98100;
+}
+
+.btn-primary:hover {
+    background-color: #9c7000;
+    border-color: #9c7000;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(185, 129, 0, 0.5);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: #9c7000;
+    border-color: #9c7000;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:hover,
+.show>.btn-primary.dropdown-toggle:focus,
+.show>.btn-primary.dropdown-toggle:hover {
+    background-color: #9c7000;
+    border-color: #9c7000;
+    box-shadow: 0 0 0 0.2rem rgba(185, 129, 0, 0.5);
+}
+
+
+.card-text {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    animation: moveAndGlow 2s infinite alternate;
+    position: relative; 
+    z-index: 2; 
+}
+
+@keyframes moveAndGlow {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    }
+
+    100% {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(255, 165, 0, 1);
+    }
+}

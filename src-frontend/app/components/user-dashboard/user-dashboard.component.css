@@ -1,0 +1,155 @@
+.background-image {
+    background-image: url('../../../assets/userhome.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.background-image::before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.container {
+    padding-top: 100px;
+}
+
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.card-body {
+    padding: -10px;
+}
+
+.card-header {
+    background-color: #b18800;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+form {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #b18800;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    background-color: white;
+    color: #b18800;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: white;
+    color: #b18800;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+button[type="submit"]:active {
+    box-shadow: 0 0 20px rgba(177, 136, 0, 0.8);
+    transform: translateY(2px);
+    background-color: #ba9109;
+    color: white;
+}
+
+.btn.btn-outline-info {
+    color: #b18800;
+    border-color: #b18800;
+}
+
+.btn.btn-outline-info:hover {
+    color: #fff;
+    background-color: #b18800;
+    border-color: #b18800;
+}
+
+.btn.btn-outline-info:focus,
+.btn.btn-outline-info.focus,
+.btn.btn-outline-info:active,
+.btn.btn-outline-info.active {
+    color: #fff;
+    background-color: #b18800;
+
+    border-color: #b18800;
+
+}
+
+.btn.btn-outline-info:not(:disabled):not(.disabled):active:focus,
+.btn.btn-outline-info:not(:disabled):not(.disabled).active:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 0, 0.5);
+
+}
+
+.btn-primary.custom-btn,
+.btn-primary.custom-btn:hover,
+.btn-primary.custom-btn:focus,
+.btn-primary.custom-btn.focus,
+.btn-primary.custom-btn:active,
+.btn-primary.custom-btn.active {
+    background-color: #b18800;
+
+    border-color: #b18800;
+
+    box-shadow: none;
+
+}
+
+.btn-primary.custom-btn:not(:disabled):not(.disabled):active:focus,
+.btn-primary.custom-btn:not(:disabled):not(.disabled).active:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 0, 0.5);
+
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* table tbody {
+    display: table;
+    width: 100%;
+}
+table thead{
+    display: table;
+    width: 90%;
+
+} */

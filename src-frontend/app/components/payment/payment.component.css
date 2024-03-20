@@ -1,0 +1,140 @@
+
+.background-container {
+    background-image: url('../../../assets/payment.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-container::before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    width: 400px; 
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #fff;
+    background-color: #b18800;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #b18800;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"].glow {
+    animation: glow 0.5s ease-in-out;
+    outline: none;
+}
+.download-button {
+    background-color: #b18800;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.download-button:hover {
+    background-color: #946900;
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(184, 136, 0, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(184, 136, 0, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(184, 136, 0, 0.8);
+    }
+}
+
+button:hover {
+    background-color: #946900;
+}
+
+
+h3,
+p {
+    color: green;
+}
+
+.forms-container {
+    display: flex;
+}
+
+.payment-form,
+.processed-payment-form {
+    flex: 1;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    form {
+        width: auto; 
+    }
+
+    .forms-container {
+        flex-direction: column;
+    }
+    .payment-form {
+        margin-top: 20px; 
+    }
+    .payment-form,
+    .processed-payment-form {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+

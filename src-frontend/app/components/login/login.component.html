@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Login</h2>
+                    </div>
+                    <div class="card-body">
+                        <form #formData=ngForm (ngSubmit)="readFormData(formData)" class="animated-form">
+                            <div *ngIf="errorMessage" class="error-message">
+                                {{ errorMessage }}
+                            </div>
+
+                            <div>
+                                <label for="username">Username</label>
+                                <input type="text" name="username" required #pwd="ngModel"
+                                    placeholder="Enter your username" ngModel>
+                                <span style="color:red" *ngIf="pwd.touched && pwd.invalid">Username is mandatory</span>
+                            </div>
+                            <div>
+                                <label for="password">Password</label>
+                                <input type="password" name="password" required #pwd="ngModel"
+                                    placeholder="Enter your password" ngModel>
+                                <span style="color:red" *ngIf="pwd.touched && pwd.invalid">Password is mandatory</span>
+                            </div>
+
+                            <br>
+
+                            <button type="submit" [disabled]="formData.invalid">Login</button>
+
+                        </form>
+
+
+
+
+                        <p class="text-center"> <a href="/forgot-password">Forgot Password?</a></p>
+                    </div>
+
+                </div>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

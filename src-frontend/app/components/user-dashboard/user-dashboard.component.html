@@ -1,0 +1,95 @@
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Cozy Haven Hotels</h2>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="checkin">Check-in date</label>
+                                <input type="date" id="checkin" formControlName="checkInDate" class="form-control"
+                                    [min]="todayDate" />
+                                <div *ngIf="searchForm.get('checkInDate')?.errors?.['required'] && searchForm.get('checkInDate')?.touched"
+                                    class="error-message">Check-in date is required</div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="checkout">Check-out date</label>
+                                <input type="date" id="checkout" formControlName="checkOutDate" class="form-control"
+                                    [min]="searchForm.get('checkInDate')?.value || todayDate" />
+                                <div *ngIf="f['checkOutDate'].errors?.['required'] && f['checkOutDate'].touched"
+                                    class="error-message">
+                                    Check-out date is required
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="destination">Destination or property</label>
+                                <input type="text" id="destination" formControlName="location" class="form-control" />
+                                <div *ngIf="searchForm.get('location')?.errors?.['required'] && searchForm.get('location')?.touched"
+                                    class="error-message">Destination or property is required</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-custom" [disabled]="!searchForm.valid">Search</button>
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- Separate Row for Search Results -->
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Search Results</h2>
+                            </div>
+                            <div class="card-body">
+                                <div *ngIf="searchResults && searchResults.length > 0" class="search-results">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Hotel ID</th>
+                                                <th>Room ID</th>
+                                                <th>Room Size</th>
+                                                <th>Bed Type</th>
+                                                <th>Occupancy</th>
+                                                <th>Base Fare</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let room of searchResults">
+                                                <td>
+                                                    {{ room.hotel?.hotelId || room.hotel }}
+                                                </td>
+                                                <td>{{ room.roomId }}</td>
+                                                <td>{{ room.roomSize }}</td>
+                                                <td>{{ room.bedType }}</td>
+                                                <td>{{ room.maxOccupancy }}</td>
+                                                <td>{{ room.baseFare }}</td>
+
+                                                <button type="button" class="btn btn-primary custom-btn"
+                                                    (click)="goToHotels()">
+                                                    See Rooms
+                                                </button>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div *ngIf="!searchResults || searchResults.length === 0" class="no-results">
+                                    <p>No results found.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

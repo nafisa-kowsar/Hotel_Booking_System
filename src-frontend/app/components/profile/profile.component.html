@@ -1,0 +1,126 @@
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Cozy Haven</h2>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="signupForm" (ngSubmit)="updateUser()" class="animated-form">
+                            <h2>User Profile</h2>
+                            <div class="form-group">
+                                <label for="userFirstName">First Name:</label>
+                                <div class="relative">
+                                    <input formControlName="userFirstName" class="form-control" id="userFirstName"
+                                        type="text">
+                                    <div class="error-message" *ngIf="isFieldValid('userFirstName')">
+                                        {{ getErrorMessage('userFirstName') }}
+                                    </div>
+                                    <i class="fa fa-user"></i>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="userLastName">Last Name:</label>
+                                <div class="relative">
+                                    <input formControlName="userLastName" class="form-control" id="userLastName"
+                                        type="text" required="">
+                                    <div class="error-message" *ngIf="isFieldValid('userLastName')">
+                                        {{ getErrorMessage('userLastName') }}
+                                    </div>
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <div class="relative">
+                                    <input formControlName="username" class="form-control" id="username" type="text"
+                                        required readonly>
+                                    <div class="error-message" *ngIf="isFieldValid('username')">
+                                        {{ getErrorMessage('username') }}
+                                    </div>
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <div class="relative">
+                                    <input formControlName="password" class="form-control" id="password" type="password"
+                                        required="">
+                                    <div class="error-message" *ngIf="isFieldValid('password')">
+                                        {{ getErrorMessage('password') }}
+                                    </div>
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender">Gender:</label>
+                                <div class="relative">
+                                    <select formControlName="gender" class="form-control" id="gender" required readonly>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Non-Binary">Non-Binary</option>
+                                    </select>
+                                    <i class="fa fa-venus-mars"></i>
+                                </div>
+                                <div class="error-message" *ngIf="isFieldValid('gender')">
+                                    {{ getErrorMessage('gender') }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <div class="relative">
+                                    <input formControlName="address" class="form-control" id="address" type="text"
+                                        required="">
+                                    <div class="error-message" *ngIf="isFieldValid('address')">
+                                        {{ getErrorMessage('address') }}
+                                    </div>
+                                    <i class="fa fa-home"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <div class="relative">
+                                    <input formControlName="email" class="form-control" type="email" required="">
+                                    <div class="error-message" *ngIf="isFieldValid('email')">
+                                        {{ getErrorMessage('email') }}
+                                    </div>
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactNumber">Contact Number:</label>
+                                <div class="relative">
+                                    <input formControlName="contactNumber" class="form-control" type="text"
+                                        maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                                        required="">
+                                    <div class="error-message" *ngIf="isFieldValid('contactNumber')">
+                                        {{ getErrorMessage('contactNumber') }}
+                                    </div>
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                            </div>
+
+                            <div class="tright">
+                                <button class="movebtn movebtnsu" type="submit" [disabled]="signupForm.invalid">Update<i
+                                        class="fa fa-fw fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

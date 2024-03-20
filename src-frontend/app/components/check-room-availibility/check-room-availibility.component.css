@@ -1,0 +1,125 @@
+/* Background Image Styles */
+.background-image {
+    background-image: url('../../../assets/check-avalibility.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Place it behind the content */
+}
+
+.background-image::before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Place it behind the content */
+}
+
+/* Container Styles */
+.form-section-heading {
+    background-color: #b18800;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Container Styles */
+.forms-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Form Styles */
+form {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #b18800;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+button:active {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+    transform: scale(0.95);
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: #f2f2f2;
+}
+
+
+.book-room-button {
+    background-color: #b18800;
+    color: white;
+}
+
+.book-room-button:hover {
+    background-color: #b18800;
+}
+
+.book-room-button:active {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+    transform: scale(0.95);
+}
+
+div p {
+    background-color: #b18800;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 10px gold;
+    display: inline-block;
+}

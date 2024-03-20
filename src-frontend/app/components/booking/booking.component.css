@@ -1,0 +1,154 @@
+.background-image {
+    background-image: url('../../../assets/booking.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.background-image::before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.container {
+    padding-top: 100px;
+}
+
+
+
+
+
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+
+}
+
+.card-body {
+    padding: 20px;
+
+}
+
+.card-header {
+    background-color: #b18800;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+form {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="date"] {
+    width: calc(100% - 22px);
+
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"],
+button,
+.card-body button {
+    width: 100%;
+    background-color: #b18800;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+
+}
+
+button:active {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+    transform: scale(0.95);
+}
+
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+
+}
+
+/* table tbody {
+    display: table;
+    width: 100%;
+}
+table thead{
+    display: table;
+    width: 90%;
+
+} */
+
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #b18800;
+    color: #fff;
+}
+
+
+.row {
+    margin-right: 0;
+
+}
+
+.booked-room {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.room-info {
+    display: flex;
+}
+
+.room-info p {
+    margin-right: 10px;
+
+}
+
+.no-results {
+    text-align: center;
+    margin-top: 20px;
+}

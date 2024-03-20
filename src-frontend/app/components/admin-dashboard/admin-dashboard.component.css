@@ -1,0 +1,41 @@
+.Top_most {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: -1;
+    filter: brightness(70%);
+}
+
+.landing-page {
+    position: relative;
+
+}
+
+.centered-text {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: top;
+    color: #b18800;
+    z-index: 1;
+    font-size: 30px;
+}
+
+.centered-text h1 span {
+    display: inline-block;
+    transform-origin: bottom;
+    animation: jump 0.5s alternate infinite ease-in-out, glow 1s alternate infinite ease-in-out;
+}
+
+@keyframes jump {
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glow {
+    to {
+        text-shadow: 0 0 10px #b18800, 0 0 20px #b18800, 0 0 30px #b18800;
+    }
+}

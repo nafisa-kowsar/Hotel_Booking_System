@@ -1,0 +1,45 @@
+<div class="forms-container">
+    <div class="form-wrapper">
+        <h2 class="form-section-heading">Check Availability</h2>
+        <form #availabilityForm="ngForm" (ngSubmit)="onSubmitAvailability()">
+            <label for="checkInDate">Check In Date:</label>
+            <input type="date" id="checkInDate" name="checkInDate" [(ngModel)]="checkInDate" required [min]="todayDate">
+
+            <label for="checkOutDate">Check Out Date:</label>
+            <input type="date" id="checkOutDate" name="checkOutDate" [(ngModel)]="checkOutDate" required
+                [min]="availabilityForm.controls['checkInDate'].value || todayDate">
+
+
+            <button type="submit" class="btn btn-custom"
+                [disabled]="!checkInDate || !checkOutDate || checkOutDate <= checkInDate">Check Availability</button>
+
+        </form>
+        <div *ngIf="loading">Checking availability...</div>
+        <div *ngIf="!loading && available">Room is available!</div>
+        <div *ngIf="!loading && !available">{{messageAv}}</div>
+
+
+    </div>
+
+    <div class="form-wrapper">
+        <div>
+            <p>DAY-WISE FARE 😊</p>
+        </div>
+        <h2 class="form-section-heading">Check Fare</h2>
+        <form #fareForm="ngForm" (ngSubmit)="onSubmitFare()">
+            <label for="numberOfAdults">Number of Adults:</label>
+            <input type="number" id="numberOfAdults" name="numberOfAdults" [(ngModel)]="numberOfAdults" required>
+
+            <label for="numberOfChildren">Number Of Children:</label>
+            <input type="number" id="numberOfChildren" name="numberOfChildren" [(ngModel)]="numberOfChildren">
+
+            <button type="submit" [disabled]="loading">Check Fare</button>
+        </form>
+        <div *ngIf="loading">Calculating Fare...</div>
+        <div *ngIf="!loading && fare">Fare is: {{ fare | currency:'INR' }}</div>
+        <div *ngIf="!loading && !fare">{{messageFare}}</div>
+    </div>
+</div>
+
+<!-- Background Image Div -->
+<div class="background-image"></div>

@@ -1,0 +1,62 @@
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>User Bookings List</h2>
+                    </div>
+                    <div class="card-body">
+                        <ng-container *ngIf="searchResults && searchResults.length > 0; else noResults">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Reservation ID</th>
+                                        <th>Check-In Date</th>
+                                        <th>Check-Out Date</th>
+                                        <th>Number of Adults</th>
+                                        <th>Number of Children</th>
+                                        <th>Total Amount</th>
+                                        <th>Reservation Status</th>
+                                        <th>Refund Processed</th>
+                                        <th>Action</th>
+                                        <th>Review</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let reservation of searchResults">
+                                        <td>{{ reservation.reservationId }}</td>
+                                        <td>{{ reservation.checkInDate }}</td>
+                                        <td>{{ reservation.checkOutDate }}</td>
+                                        <td>{{ reservation.numberOfAdults }}</td>
+                                        <td>{{ reservation.numberOfChildren }}</td>
+                                        <td>{{ reservation.totalAmount }}</td>
+                                        <td>{{ reservation.reservationStatus }}</td>
+                                        <td>{{ reservation.refundProcessed ? 'Processed' : 'Not Processed' }}</td>
+                                        <td>
+                                            <button class="btn btn-danger"
+                                                (click)="cancelAndRefund(reservation.reservationId)">Cancel &
+                                                Refund</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary ml-2"
+                                                (click)="addReview(reservation.reservationId)">Add Review</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <mat-paginator [length]="totalItems" [pageSize]="itemsPerPage"
+                                [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)"></mat-paginator>
+
+                        </ng-container>
+                        <ng-template #noResults>
+                            <div class="no-results">
+                                <p>No reservations found.</p>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

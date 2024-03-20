@@ -1,0 +1,183 @@
+.background-image {
+    background-image: url('../../../assets/hotelownerprofile.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.background-image::before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    padding-top: 100px;
+}
+
+
+
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.card-header {
+    background-color: #b18800;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-group .column {
+    display: flex;
+    column-gap: 15px;
+}
+
+.form-group .gender-box {
+    margin-top: 20px;
+}
+
+
+
+.gender-box h3 {
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.form-group :where(.gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+}
+
+.form-group :where(.gender input, .gender label) {
+    cursor: pointer;
+}
+
+.form-group .gender {
+    column-gap: 5px;
+    cursor: pointer;
+}
+
+.gender input {
+    accent-color: #b18800;
+}
+
+
+
+
+
+.gender label {
+    color: #707070;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.animated-form {
+    animation-duration: 1s;
+    animation-name: slideInUp;
+}
+
+
+.facility-options {
+    margin-top: 20px;
+
+}
+
+.facility-option {
+    margin-right: 20px;
+
+}
+
+.facility-option label {
+    display: inline-block;
+
+    margin-left: 5px;
+    color: #707070;
+}
+
+
+.facility-options .form-check-input {
+    accent-color: #b18800;
+
+}
+
+
+
+
+.facility-option .form-check-label {
+    color: #707070;
+
+}
+
+.facility-option .form-check input {
+    accent-color: #b18800;
+}
+
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

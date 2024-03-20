@@ -1,0 +1,127 @@
+<app-header></app-header>
+
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Sign Up</h2>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="signupForm" (ngSubmit)="insertUser()" class="animated-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="userFirstName">First Name:</label>
+                                        <input type="text" id="userFirstName" class="form-control"
+                                            formControlName="userFirstName" required>
+                                        <div class="error-message" *ngIf="isFieldValid('userFirstName')">
+                                            {{ getErrorMessage('userFirstName') }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="userLastName">Last Name:</label>
+                                        <input type="text" id="userLastName" class="form-control"
+                                            formControlName="userLastName" required>
+                                        <div class="error-message" *ngIf="isFieldValid('userLastName')">
+                                            {{ getErrorMessage('userLastName') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="username">Username:</label>
+                                        <input type="text" id="username" class="form-control" formControlName="username"
+                                            required>
+                                        <div class="error-message" *ngIf="isFieldValid('username')">
+                                            {{ getErrorMessage('username') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Password:</label>
+                                        <input type="password" id="password" class="form-control"
+                                            formControlName="password" required>
+                                        <div class="error-message" *ngIf="isFieldValid('password')">
+                                            {{ getErrorMessage('password') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactNumber">Phone Number:</label>
+                                <input type="text" id="contactNumber" class="form-control"
+                                    formControlName="contactNumber" required>
+                                <div class="error-message" *ngIf="isFieldValid('contactNumber')">
+                                    {{ getErrorMessage('contactNumber') }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" class="form-control" formControlName="email" required>
+                                <div class="error-message" *ngIf="isFieldValid('email')">
+                                    {{ getErrorMessage('email') }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender:</label>
+
+                                <div class="gender-option">
+                                    <div class="gender">
+                                        <input type="radio" id="male" name="gender" formControlName="gender"
+                                            value="Male">
+                                        <label for="male">Male</label>
+                                    </div>
+
+                                    <div class="gender">
+                                        <input type="radio" id="female" name="gender" formControlName="gender"
+                                            value="Female">
+                                        <label for="female">Female</label>
+                                    </div>
+
+                                    <div class="gender">
+                                        <input type="radio" id="non-binary" name="gender" formControlName="gender"
+                                            value="Non-Binary">
+                                        <label for="non-binary">Non-Binary</label>
+                                    </div>
+                                </div>
+
+                                <div class="error-message" *ngIf="isFieldValid('gender')">
+                                    {{ getErrorMessage('gender') }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <input type="text" id="address" class="form-control" formControlName="address" required>
+                                <div class="error-message" *ngIf="isFieldValid('address')">
+                                    {{ getErrorMessage('address') }}
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Sign
+                                    Up</button>
+                            </div>
+                        </form>
+                        <p class="text-center">Already a user? <a href="/login">Log in</a></p>
+                    </div>
+
+                </div>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

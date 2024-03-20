@@ -1,0 +1,82 @@
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Add Room</h2>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="roomForm" (ngSubmit)="addRoom(roomForm.value)" class="animated-form">
+                            <div class="form-group">
+                                <label for="roomSize">Room Size:</label>
+                                <div class="input-with-addon">
+                                    <input type="text" id="roomSize" class="form-control" formControlName="roomSize"
+                                        required>
+                                    <div class="addon">Example Format: 30m² / 343ft²</div>
+                                </div>
+                                <div class="error-message" *ngIf="isFieldValid('roomSize')">
+                                    {{ getErrorMessage('roomSize') }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bedType">Bed Type:</label>
+                                <select id="bedType" class="form-control" formControlName="bedType" required>
+                                    <option value="Single Bed">Single Bed</option>
+                                    <option value="Double Bed">Double Bed</option>
+                                    <option value="King Size Bed">King Size Bed</option>
+                                </select>
+                                <div class="error-message" *ngIf="isFieldValid('bedType')">
+                                    {{ getErrorMessage('bedType') }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="maxOccupancy">Occupancy:</label>
+                                <input type="number" id="maxOccupancy" class="form-control"
+                                    formControlName="maxOccupancy" required>
+                                <div class="error-message" *ngIf="isFieldValid('maxOccupancy')">
+                                    {{ getErrorMessage('maxOccupancy') }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="baseFare">Base Fare:</label>
+                                <input type="number" id="baseFare" class="form-control" formControlName="baseFare"
+                                    required>
+                                <div class="error-message" *ngIf="isFieldValid('baseFare')">
+                                    {{ getErrorMessage('baseFare') }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ac">Is AC:</label>
+                                <select id="ac" class="form-control" formControlName="ac" required>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="availabilityStatus">Availability Status:</label>
+                                <select id="availabilityStatus" class="form-control"
+                                    formControlName="availabilityStatus" required>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" [disabled]="roomForm.invalid">Add
+                                    Room</button>
+                            </div>
+                        </form>
+                        <!-- Additional content if needed -->
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

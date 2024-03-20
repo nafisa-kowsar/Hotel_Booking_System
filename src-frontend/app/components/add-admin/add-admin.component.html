@@ -1,0 +1,78 @@
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Add Admin</h2>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="adminForm" (ngSubmit)="addAdmin()" class="animated-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="adminFirstName">First Name:</label>
+                                        <input type="text" id="adminFirstName" class="form-control"
+                                            formControlName="adminFirstName" required>
+                                        <div class="error-message" *ngIf="isFieldValid('adminFirstName')">
+                                            {{ getErrorMessage('adminFirstName') }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="adminLastName">Last Name:</label>
+                                        <input type="text" id="adminLastName" class="form-control"
+                                            formControlName="adminLastName" required>
+                                        <div class="error-message" *ngIf="isFieldValid('adminLastName')">
+                                            {{ getErrorMessage('adminLastName') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="adminUsername">Username:</label>
+                                        <input type="text" id="adminUsername" class="form-control"
+                                            formControlName="username" required>
+                                        <div class="error-message" *ngIf="isFieldValid('username')">
+                                            {{ getErrorMessage('username') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="adminPassword">Password:</label>
+                                        <input type="password" id="adminPassword" class="form-control"
+                                            formControlName="password" required>
+                                        <div class="error-message" *ngIf="isFieldValid('password')">
+                                            {{ getErrorMessage('password') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="adminEmail">Email:</label>
+                                <input type="email" id="adminEmail" class="form-control" formControlName="email"
+                                    required>
+                                <div class="error-message" *ngIf="isFieldValid('email')">
+                                    {{ getErrorMessage('email') }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" [disabled]="adminForm.invalid">Add
+                                    Admin</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

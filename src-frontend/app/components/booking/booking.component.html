@@ -1,0 +1,88 @@
+<body class="background-image">
+    <form (ngSubmit)="makeReservation()">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Booking</h2>
+                </div>
+                <div class="card-body">
+
+                    <label for="checkInDate">Check In Date:</label>
+                    <input type="date" id="checkInDate" name="checkInDate" [(ngModel)]="reservationCheckInDate "
+                        required [disabled]="inputsDisabled" [min]="todayDate">
+
+                    <label for="checkOutDate">Check Out Date:</label>
+                    <input type="date" id="checkOutDate" name="checkOutDate" [(ngModel)]="reservationCheckOutDate"
+                        required [disabled]="inputsDisabled" [min]="todayDate">
+
+
+                    <div *ngFor="let bookedRoom of bookedRoomDetails">
+                        <div class="booked-room">
+                            <h3>Room ID: {{ bookedRoom.roomId }}</h3>
+                            <div class="room-info">
+                                <p>Adults: {{ bookedRoom.numberOfAdults }}</p>
+                                <p>Children: {{ bookedRoom.numberOfChildren }}</p>
+                            </div>
+                            <button (click)="removeBookedRoom(bookedRoom.roomId)">Remove Room</button>
+                        </div>
+                    </div>
+
+                    <p>Fare: {{ fare }}</p>
+
+                    <button type="submit" class="btn btn-custom"
+                        [disabled]="!reservationCheckInDate || !reservationCheckOutDate || reservationCheckOutDate <= reservationCheckInDate || bookedRoomDetails.length === 0 ">Book Now</button>
+
+                    <button type="button" class="btn btn-reset" (click)="clearForm()">Clear Form</button>
+
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="container">
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Selected Rooms</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Room No.</th>
+                                    <th>Bed Type</th>
+
+                                    <th>Number of Adults</th>
+                                    <th>Number of Children</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let room of getSelectedRooms()">
+                                    <td>{{ room.roomId }}</td>
+
+                                    <td>{{ room.bedType }}</td>
+
+                                    <td><input type="number" [(ngModel)]="room.numberOfAdults"></td>
+                                    <td><input type="number" [(ngModel)]="room.numberOfChildren"></td>
+                                    <td><button
+                                            [disabled]="!isAddRoomButtonEnabled(room.numberOfAdults, room.numberOfChildren)"
+                                            (click)="addBookedRoom(room, room.numberOfAdults, room.numberOfChildren)"
+                                            [ngStyle]="{'background-color': isAddRoomButtonEnabled(room.numberOfAdults, room.numberOfChildren) ? '#b18800' : 'grey'}">Add
+                                            Room
+
+                                        </button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button (click)="clearSelectedRooms()">Clear Selected Rooms</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

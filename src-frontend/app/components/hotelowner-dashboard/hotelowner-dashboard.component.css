@@ -1,0 +1,23 @@
+.Top_most {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: -1;
+    filter: brightness(85%);
+}
+
+.landing-page {
+    position: relative;
+
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+    font-size: 24px;
+}

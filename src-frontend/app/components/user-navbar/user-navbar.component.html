@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="user-navbar/user-dashboard">
+            <img src="../assets/logo.jpg" alt="Cozy Haven Logo" height="40">
+            COZY HAVEN</a>
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30">
+                <path
+                    d="M 0 7.5 L 0 12.5 L 30 12.5 L 30 7.5 Z M 0 15 L 0 20 L 30 20 L 30 15 Z M 0 22.5 L 0 27.5 L 30 27.5 L 30 22.5 Z" />
+            </svg>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/user-navbar/user-dashboard">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/user-navbar/user-hotels-list">Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/user-navbar/user-bookings-list">My Bookings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/user-navbar/booking">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/user-navbar/profile">Profile</a>
+                </li>
+                <div>
+                    <button class="butt1" (click)="logout()">Log Out</button>
+                </div>
+
+            </ul>
+        </div>
+
+
+
+
+    </div>
+</nav>
+
+<div>
+    <router-outlet></router-outlet>
+
+</div>

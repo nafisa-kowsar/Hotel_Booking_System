@@ -1,0 +1,52 @@
+.Top_most {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: -1;
+    filter: brightness(85%);
+}
+
+.landing-page {
+    position: relative;
+
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.centered-text h1 {
+    font-weight: 500;
+}
+
+.centered-text p {
+    margin-top: 20px;
+    font-size: medium;
+}
+
+
+.centered-text-mid h2 {
+    margin: 4vw 0;
+}
+
+.centered-text-mid p {
+    margin: 1vw 9vw 0 9vw;
+}
+
+.centered-text-mid h2 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.centered-text-mid p {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+}

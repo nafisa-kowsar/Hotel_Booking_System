@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Hotels List</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Hotel ID</th>
+                                        <th>Hotel Name</th>
+                                        <th>Location</th>
+                                        <th>Dining</th>
+                                        <th>Parking</th>
+                                        <th>Free WiFi</th>
+                                        <th>Room Service</th>
+                                        <th>Swimming Pool</th>
+                                        <th>Fitness Center</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let hotel of hotels">
+                                        <td>{{ hotel.hotelId }}</td>
+                                        <td>{{ hotel.hotelName }}</td>
+                                        <td>{{ hotel.location }}</td>
+                                        <td>{{ hotel.hasDining ? 'Available' : 'Not Available'}}</td>
+                                        <td>{{ hotel.hasParking ? 'Available' : 'Not Available'}}</td>
+                                        <td>{{ hotel.hasFreeWiFi ? 'Available' : 'Not Available'}}</td>
+                                        <td>{{ hotel.hasRoomService? 'Available' : 'Not Available' }}</td>
+                                        <td>{{ hotel.hasSwimmingPool ? 'Available' : 'Not Available'}}</td>
+                                        <td>{{ hotel.hasFitnessCenter ? 'Available' : 'Not Available'}}</td>
+                                        <td><button class="btn btn-primary" (click)="goToLogin()">Book</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

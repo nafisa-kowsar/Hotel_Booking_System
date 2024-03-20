@@ -1,0 +1,231 @@
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Hotel Owner Profile</h2>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="signupForm" (ngSubmit)="updateHotelOwner()" class="animated-form">
+                            <h3>Hotel Owner Details</h3>
+                            <div class="form-group">
+                                <label for="hotelOwnerName">Hotel Owner Name:</label>
+                                <input type="text" id="hotelOwnerName" class="form-control"
+                                    formControlName="hotelOwnerName" required>
+                                <div class="error-message" *ngIf="isFieldValid('hotelOwnerName')">
+                                    {{ getErrorMessage('hotelOwnerName') }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="username">Username:</label>
+                                        <input type="text" id="username" class="form-control" formControlName="username"
+                                            required readonly>
+                                        <div class="error-message" *ngIf="isFieldValid('username')">
+                                            {{ getErrorMessage('username') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Password:</label>
+                                        <input type="password" id="password" class="form-control"
+                                            formControlName="password" required>
+                                        <div class="error-message" *ngIf="isFieldValid('password')">
+                                            {{ getErrorMessage('password') }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="text" id="email" class="form-control" formControlName="email" required>
+                                    <div class="error-message" *ngIf="isFieldValid('email')">
+                                        {{ getErrorMessage('email') }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender:</label>
+
+                                    <div class="gender-option">
+                                        <div class="gender">
+                                            <input type="radio" id="male" name="gender" formControlName="gender"
+                                                value="Male">
+                                            <label for="male">Male</label>
+                                        </div>
+
+                                        <div class="gender">
+                                            <input type="radio" id="female" name="gender" formControlName="gender"
+                                                value="Female">
+                                            <label for="female">Female</label>
+                                        </div>
+
+                                        <div class="gender">
+                                            <input type="radio" id="non-binary" name="gender" formControlName="gender"
+                                                value="Non-Binary">
+                                            <label for="non-binary">Non-Binary</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="error-message" *ngIf="isFieldValid('gender')">
+                                        {{ getErrorMessage('gender') }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address:</label>
+                                    <input type="text" id="address" class="form-control" formControlName="address"
+                                        required>
+                                    <div class="error-message" *ngIf="isFieldValid('address')">
+                                        {{ getErrorMessage('address') }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Hotel Details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="hotelName">Hotel Name:</label>
+                                        <input type="text" id="hotelName" class="form-control"
+                                            formControlName="hotelName" required>
+                                        <div class="error-message" *ngIf="isFieldValid('hotelName')">
+                                            {{ getErrorMessage('hotelName') }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="location">Location:</label>
+                                        <input type="text" id="location" class="form-control" formControlName="location"
+                                            required>
+                                        <div class="error-message" *ngIf="isFieldValid('location')">
+                                            {{ getErrorMessage('location') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="facility-options">
+                                <h4>Facilities</h4>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+
+                                            <label>Dining</label>
+                                            <div class="form-check">
+                                                <input type="radio" id="diningYes" class="form-check-input"
+                                                    formControlName="hasDining" [value]="true">
+                                                <label for="diningYes" class="form-check-label">Yes</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="diningNo" class="form-check-input"
+                                                    formControlName="hasDining" [value]="false">
+                                                <label for="diningNo" class="form-check-label">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Parking</label>
+                                            <div class="form-check">
+                                                <input type="radio" id="parkingYes" class="form-check-input"
+                                                    formControlName="hasParking" [value]="true">
+                                                <label for="parkingYes" class="form-check-label">Yes</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="parkingNo" class="form-check-input"
+                                                    formControlName="hasParking" [value]="false">
+                                                <label for="parkingNo" class="form-check-label">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Free WiFi</label>
+                                            <div class="form-check">
+                                                <input type="radio" id="freeWiFiYes" class="form-check-input"
+                                                    formControlName="hasFreeWiFi" [value]="true">
+                                                <label for="freeWiFiYes" class="form-check-label">Yes</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="freeWiFiNo" class="form-check-input"
+                                                    formControlName="hasFreeWiFi" [value]="false">
+                                                <label for="freeWiFiNo" class="form-check-label">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+
+                                            <label>Room Service</label>
+                                            <div class="form-check">
+                                                <input type="radio" id="roomServiceYes" class="form-check-input"
+                                                    formControlName="hasRoomService" [value]="true">
+                                                <label for="roomServiceYes" class="form-check-label">Yes</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="roomServiceNo" class="form-check-input"
+                                                    formControlName="hasRoomService" [value]="false">
+                                                <label for="roomServiceNo" class="form-check-label">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Swimming Pool</label>
+                                            <div class="form-check">
+                                                <input type="radio" id="swimmingPoolYes" class="form-check-input"
+                                                    formControlName="hasSwimmingPool" [value]="true">
+                                                <label for="swimmingPoolYes" class="form-check-label">Yes</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="swimmingPoolNo" class="form-check-input"
+                                                    formControlName="hasSwimmingPool" [value]="false">
+                                                <label for="swimmingPoolNo" class="form-check-label">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Fitness Center</label>
+                                            <div class="form-check">
+                                                <input type="radio" id="fitnessCenterYes" class="form-check-input"
+                                                    formControlName="hasFitnessCenter" [value]="true">
+                                                <label for="fitnessCenterYes" class="form-check-label">Yes</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="FitnessCenterNo" class="form-check-input"
+                                                    formControlName="hasFitnessCenter" [value]="false">
+                                                <label for="fitnessCenterNo" class="form-check-label">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="signupForm.invalid">Update</button>
+                            </div>
+                        </form>
+
+
+
+                    </div>
+
+                </div>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

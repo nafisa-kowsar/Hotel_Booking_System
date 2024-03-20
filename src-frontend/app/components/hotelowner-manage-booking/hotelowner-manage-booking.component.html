@@ -1,0 +1,54 @@
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Your Hotel Bookings</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table" *ngIf="searchResults && searchResults.length > 0">
+                            <thead>
+                                <tr>
+                                    <th>Reservation ID</th>
+                                    <th>Check-In Date</th>
+                                    <th>Check-Out Date</th>
+                                    <th>Number of Adults</th>
+                                    <th>Number of Children</th>
+                                    <th>Total Amount</th>
+                                    <th>Reservation Status</th>
+                                    <th>Refund Processed</th>
+                                    <!-- <th>Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let reservation of searchResults">
+                                    <td>{{ reservation.reservationId }}</td>
+                                    <td>{{ reservation.checkInDate }}</td>
+                                    <td>{{ reservation.checkOutDate }}</td>
+                                    <td>{{ reservation.numberOfAdults }}</td>
+                                    <td>{{ reservation.numberOfChildren }}</td>
+                                    <td>{{ reservation.totalAmount }}</td>
+                                    <td>{{ reservation.reservationStatus }}</td>
+                                    <td>{{reservation.refundProcessed ? 'Processed' : 'Not Processed' }}</td>
+                                    <!-- <td>
+                                        <button class="btn btn-danger"
+                                            (click)="cancelReservation(reservation.reservationId)">Cancel
+                                            Reservation</button>
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                        <mat-paginator [length]="totalItems" [pageSize]="itemsPerPage"
+                            [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)">
+                        </mat-paginator>
+                    </div>
+
+                </div>
+
+                <br>
+            </div>
+        </div>
+    </div>
+
+</div>

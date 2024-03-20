@@ -1,0 +1,46 @@
+<div class="background-image">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Users List</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table" *ngIf="usersList && usersList.length > 0">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Gender</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of pagedUsersList">
+                                    <td>{{ user.userId }}</td>
+                                    <td>{{ user.userFirstName }}</td>
+                                    <td>{{ user.userLastName }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.contactNumber }}</td>
+                                    <td>{{ user.gender }}</td>
+                                    <td>{{ user.address }}</td>
+                                    <td>
+                                        <button class="btn btn-danger" (click)="deleteUser(user.userId)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <mat-paginator [length]="totalUsers" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                            (page)="onPageChange($event)"></mat-paginator>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+.background-image {
+    background-image: url('../../../assets/usershotellist.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.background-image::before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #b18800;
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+th,
+td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #b18800;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.d-flex {
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.form-control {
+    width: 60%;
+}
+
+
+.btn.btn-outline-info {
+    color: #b18800;
+    border-color: #b18800;
+}
+
+.btn.btn-outline-info:hover {
+    color: #fff;
+    background-color: #b18800;
+    border-color: #b18800;
+}
+
+.btn.btn-outline-info:focus,
+.btn.btn-outline-info.focus,
+.btn.btn-outline-info:active,
+.btn.btn-outline-info.active {
+    color: #fff;
+    background-color: #b18800;
+
+    border-color: #b18800;
+
+}
+
+.btn.btn-outline-info:not(:disabled):not(.disabled):active:focus,
+.btn.btn-outline-info:not(:disabled):not(.disabled).active:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 0, 0.5);
+
+}
+
+.btn-primary.custom-btn,
+.btn-primary.custom-btn:hover,
+.btn-primary.custom-btn:focus,
+.btn-primary.custom-btn.focus,
+.btn-primary.custom-btn:active,
+.btn-primary.custom-btn.active {
+    background-color: #b18800;
+
+    border-color: #b18800;
+
+    box-shadow: none;
+
+}
+
+.btn-primary.custom-btn:not(:disabled):not(.disabled):active:focus,
+.btn-primary.custom-btn:not(:disabled):not(.disabled).active:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 0, 0.5);
+
+}

@@ -1,0 +1,51 @@
+<div *ngIf="loading" class="text-center">Loading...</div>
+
+<div class="container">
+    <h1>{{ hotelName }}</h1>
+</div>
+
+
+<div *ngIf="!loading" class="card-deck">
+    <div *ngFor="let room of roomsList" class="card btn-custom second hero">
+        <div class="card-body hero-description-bk">
+            <div class="hero-logo">
+                <img src="assets/logo.jpg" alt="Logo">
+            </div>
+            <ng-container *ngIf="room.bedType.toLowerCase() === 'single bed'">
+                <img [src]="'assets/standard-room.jpg'" class="card-img-top hero-profile-img" alt="Single Bed Image">
+            </ng-container>
+            <ng-container *ngIf="room.bedType.toLowerCase() === 'double bed'">
+                <img [src]="'assets/deluxe-room.jpg'" class="card-img-top hero-profile-img" alt="Double Bed Image">
+            </ng-container>
+            <ng-container
+                *ngIf="room.bedType.toLowerCase() === 'king size bed' || room.bedType.toLowerCase() === 'king size'">
+                <img [src]="'assets/suite-room.jpg'" class="card-img-top hero-profile-img" alt="King Size Bed Image">
+            </ng-container>
+
+
+            <h4 class="card-title center-text">{{ room.bedType | uppercase}}</h4>
+
+            <p class="card-text">Base Fare: {{ room.baseFare | currency:"INR"}}</p>
+            <p class="card-text">Base Fare: {{ room.roomSize }}</p>
+
+
+            <ng-container *ngIf="room.bedType.toLowerCase() === 'single bed'">
+                <p class="card-text">Occupancy: {{2}}</p>
+
+            </ng-container>
+            <ng-container *ngIf="room.bedType.toLowerCase() === 'double bed'">
+                <p class="card-text">Occupancy: {{4}}</p>
+
+            </ng-container>
+            <ng-container
+                *ngIf="room.bedType.toLowerCase() === 'king size bed' || room.bedType.toLowerCase() === 'king size'">
+                <p class="card-text">Occupancy: {{6}}</p>
+            </ng-container>
+            <div class="button-container">
+                <button class="btn btn-custom hero-btn check-availability"
+                    (click)="checkAvailability(room.roomId)">Check Availability</button>
+                <button class="btn btn-custom hero-btn add-to-book" (click)="addToBook(room)">Add to Book</button>
+            </div>
+        </div>
+    </div>
+</div>
